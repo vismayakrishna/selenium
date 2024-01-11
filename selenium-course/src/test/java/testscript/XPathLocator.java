@@ -60,7 +60,41 @@ public class XPathLocator extends Base {
 		WebElement xpathElement4 = driver.findElement(By.xpath("//div[@id='message-two']//ancestor::form"));
 		WebElement xpathElement5 = driver.findElement(By.xpath("//input[@id='value-b']//ancestor::div[@class='form-group']"));
 	}
-
+	
+	public void followingMethod() {
+		WebElement xpathElement = driver.findElement(By.xpath("//button[@id='button-one']//following::div"));
+		WebElement xpathElement2 = driver.findElement(By.xpath("//input[@id='value-a']//following::input"));
+		WebElement xpathElement3 = driver.findElement(By.xpath("//button[@id='button-one']//following::div[@class='form-group']"));
+		WebElement xpathElement4 = driver.findElement(By.xpath("//input[@id='value-a']//following::button"));
+		WebElement xpathElement5 = driver.findElement(By.xpath("//form[@method='POST']//following::input[@id='single-input-field']"));
+		
+	}
+	
+	public void precedingMethod() {
+		WebElement xpathElement = driver.findElement(By.xpath("//button[@id='button-one']//preceding::div[@class='container']"));
+		WebElement xpathElement2 = driver.findElement(By.xpath("//button[@id='button-two']//preceding::div[@class='row']"));
+		WebElement xpathElement3 = driver.findElement(By.xpath("//input[@id='single-input-field']//preceding::nav"));
+		WebElement xpathElement4 = driver.findElement(By.xpath("//input[@id='value-a']//preceding::input"));
+		WebElement xpathElement5 = driver.findElement(By.xpath("//button[@id='button-one']//preceding::input"));
+	}
+	
+	public void descendantMethod() {
+		WebElement xpathElement = driver.findElement(By.xpath("//form[@method='POST']//descendant::input[@id='value-b']"));
+		WebElement xpathElement2 = driver.findElement(By.xpath("//form[@method='POST']//descendant::input[@id='value-a']"));
+		WebElement xpathElement3 = driver.findElement(By.xpath("//form[@method='POST']//descendant::input[@id='single-input-field']"));
+		WebElement xpathElement4 = driver.findElement(By.xpath("//div[@class='card']//descendant::ul"));
+		WebElement xpathElement5 = driver.findElement(By.xpath("//div[@class='example my-3']//descendant::ul"));
+	}
+	
+	public void followingSiblingMethod() {
+		WebElement xpathElement = driver.findElement(By.xpath("//button[@id='button-two']//following-sibling::div"));
+		WebElement xpathElement2 = driver.findElement(By.xpath("//div[@class='example my-3']//following-sibling::div[@id='message-two']"));
+		WebElement xpathElement3 = driver.findElement(By.xpath("//form[@method='POST']//following-sibling::div[@class='form-group']"));
+		WebElement xpathElement4 = driver.findElement(By.xpath("//button[@id='button-one']//following-sibling::div"));
+		WebElement xpathElement5 = driver.findElement(By.xpath("//div[@class='example my-3']//following-sibling::div[@id='message-one']"));
+	}
+	
+	
 	public static void main(String[] args) {
 		XPathLocator xPathLocator = new XPathLocator();
 		xPathLocator.initializeBrowser();
@@ -71,6 +105,10 @@ public class XPathLocator extends Base {
 		xPathLocator.parentMethod();
 		xPathLocator.childMethod();
 		xPathLocator.ancestorMethod();
+		xPathLocator.followingMethod();
+		xPathLocator.precedingMethod();
+		xPathLocator.descendantMethod();
+		xPathLocator.followingSiblingMethod();
 		xPathLocator.driverQuit();
 	}
 
