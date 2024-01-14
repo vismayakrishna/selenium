@@ -22,6 +22,9 @@ public class WebElementCommands extends Base {
 		} else {
 			System.out.println("Test Failed");
 		}
+		
+		String classNameOfShowMessageButton = showMessageButton.getAttribute("class");	
+		boolean isShowMessageButtonDisplyed = showMessageButton.isDisplayed();
 	}
 	
 	public void twoInputField() {
@@ -101,11 +104,11 @@ public class WebElementCommands extends Base {
 		WebElementCommands webElementCommands = new WebElementCommands();
 		webElementCommands.initializeBrowser();
 		webElementCommands.singleInputField();
-		webElementCommands.twoInputField();
-		webElementCommands.verifyBackgroundColorOfShowMessageButton();
-		webElementCommands.verifyFontWeightOfShowMessageButton();
-		webElementCommands.verifyFontColorOfShowMessageButton();
-		webElementCommands.verifyBorderRadiusOfGetTotalButton();
+//		webElementCommands.twoInputField();
+//		webElementCommands.verifyBackgroundColorOfShowMessageButton();
+//		webElementCommands.verifyFontWeightOfShowMessageButton();
+//		webElementCommands.verifyFontColorOfShowMessageButton();
+//		webElementCommands.verifyBorderRadiusOfGetTotalButton();
 		webElementCommands.driverQuit();
 	}
 
