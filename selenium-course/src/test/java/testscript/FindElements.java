@@ -21,9 +21,9 @@ public class FindElements extends Base {
 	}
 	
 	public void selectLanguageDropDown() {
+		String languageToBeSelected = "Português (Brasileiro)";
 		driver.navigate().to("https://www.selenium.dev/");
 		driver.findElement(By.linkText("English")).click();
-		String languageToBeSelected = "Português (Brasileiro)";
 		List<WebElement> languageMenu = driver.findElements(By.xpath("//a[@class='dropdown-item']//parent::li"));
 		for (WebElement languageItem : languageMenu) {
 			String language = languageItem.getText();
