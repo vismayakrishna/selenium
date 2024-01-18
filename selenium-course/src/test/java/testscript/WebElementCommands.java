@@ -1,5 +1,8 @@
 package testscript;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.Color;
@@ -17,14 +20,11 @@ public class WebElementCommands extends Base {
 		WebElement yourMessageText = driver.findElement(By.id("message-one"));
 		String messageText = yourMessageText.getText();
 		messageText = messageText.substring(15);
-		if(messageText.equals(input)) {
-			System.out.println("Test Passed");
-		} else {
-			System.out.println("Test Failed");
-		}
+		assertEquals(input, messageText, "Your message is not " + input);
 		
 		String classNameOfShowMessageButton = showMessageButton.getAttribute("class");	
 		boolean isShowMessageButtonDisplyed = showMessageButton.isDisplayed();
+		assertTrue(isShowMessageButtonDisplyed, "Show message button is not displayed.");
 	}
 	
 	public void twoInputField() {

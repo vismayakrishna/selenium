@@ -1,7 +1,13 @@
 package testscript;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertNotEquals;
+import static org.testng.Assert.assertNotNull;
+import static org.testng.Assert.assertNull;
+import static org.testng.Assert.assertTrue;
+
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -25,26 +31,34 @@ public class Table extends Base {
 		for (WebElement headerItem : headerOfTheTable) {
 			actualHeaderOfTheTable.add(headerItem.getText());
 		}
-		Collections.sort(expectedHeaderOfTheTable);
-		Collections.sort(actualHeaderOfTheTable);
-		if(expectedHeaderOfTheTable.equals(actualHeaderOfTheTable)) {
-			System.out.println("Headers of the tables are equal");
-		}else {
-			System.out.println("Headers of the tables are not equal");
-		}
+		assertEquals(expectedHeaderOfTheTable, actualHeaderOfTheTable, "Header is not expected");
 	}
 	
 	@Test
 	public void searchNameInTheList() {
 		String nameToBeSearched = "Ashton Cox";
+		boolean flag = false;
 		driver.navigate().to("https://selenium.obsqurazone.com/table-pagination.php");
 		List<WebElement> elementsOfTheTable = driver.findElements(By.xpath("//tr[@class='odd']//td"));
 		for (WebElement name : elementsOfTheTable) {
 			if(nameToBeSearched.equals(name.getText())) {
-				System.out.println("Element is found");
+				flag = true;
 				break;
 			} 
 		}
+		assertTrue(flag, "Searched item " + nameToBeSearched + " not found");
+	}
+	
+	@Test
+	public void assertSample() {
+		boolean flag = false;
+		int a=5, b=6;
+		String s = null;
+		String str = "Hello";
+		assertFalse(flag, "Flag is true.");
+		assertNotEquals(a, b, "a & b are equal");
+		assertNull(s, "s is not null");
+		assertNotNull(str, "str is null");
 	}
 
 }
