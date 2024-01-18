@@ -28,7 +28,8 @@ public class HandlingMultipleWindows extends Base {
                  
                     // Switching to Child window
                     driver.switchTo().window(ChildWindow); 
-                    //click on login button
+                    WebElement loginButton = driver.findElement(By.xpath("//div[@aria-label='Accessible login button']//parent::div[@class='x1c436fg']"));
+                    loginButton.click();
             }
         }
         driver.switchTo().window(mainWindow);
