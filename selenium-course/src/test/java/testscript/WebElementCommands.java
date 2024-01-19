@@ -103,8 +103,8 @@ public class WebElementCommands extends Base {
 	public static void main(String[] args) {
 		WebElementCommands webElementCommands = new WebElementCommands();
 		webElementCommands.initializeBrowser();
-		webElementCommands.singleInputField();
-//		webElementCommands.twoInputField();
+//		webElementCommands.singleInputField();
+		webElementCommands.twoInputField();
 //		webElementCommands.verifyBackgroundColorOfShowMessageButton();
 //		webElementCommands.verifyFontWeightOfShowMessageButton();
 //		webElementCommands.verifyFontColorOfShowMessageButton();
