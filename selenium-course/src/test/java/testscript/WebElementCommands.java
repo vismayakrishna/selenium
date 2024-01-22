@@ -3,9 +3,17 @@ package testscript;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import java.time.Duration;
+import java.util.NoSuchElementException;
+
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.Color;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WebElementCommands extends Base {
 	
@@ -15,6 +23,8 @@ public class WebElementCommands extends Base {
 		singleInputTextField.sendKeys(input);
 		
 		WebElement showMessageButton = driver.findElement(By.id("button-one"));
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20)); //explicit wait
+		wait.until(ExpectedConditions.elementToBeClickable(showMessageButton)); //explicit wait
 		showMessageButton.click();
 		
 		WebElement yourMessageText = driver.findElement(By.id("message-one"));
@@ -39,6 +49,11 @@ public class WebElementCommands extends Base {
 		int result = Integer.parseInt(firstValue)+Integer.parseInt(secondValue);
 		
 		WebElement getTotalButton = driver.findElement(By.id("button-two"));
+		Wait<WebDriver> fluentWait = new FluentWait<WebDriver>(driver)
+		        .withTimeout(Duration.ofSeconds(30))
+		        .pollingEvery(Duration.ofSeconds(5))
+		        .ignoring(NoSuchElementException.class);
+		fluentWait.until(ExpectedConditions.elementToBeClickable(getTotalButton));
 		getTotalButton.click();
 		
 		WebElement totalValueText = driver.findElement(By.id("message-two"));
