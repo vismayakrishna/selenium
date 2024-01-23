@@ -1,13 +1,11 @@
-package testscript;
-
-import java.time.Duration;
+package testscripts;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-public class BaseClass {
+public class Base {
 	
 public WebDriver driver;
 	
@@ -15,7 +13,6 @@ public WebDriver driver;
 	public void initializeBrowser() {
 		driver = new ChromeDriver();
 		driver.get("https://groceryapp.uniqassosiates.com/admin ");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		driver.manage().window().maximize();
 	}
 	

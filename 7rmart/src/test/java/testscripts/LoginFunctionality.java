@@ -1,4 +1,4 @@
-package testscript;
+package testscripts;
 
 import static org.testng.Assert.assertEquals;
 
@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-public class LoginPage extends BaseClass {
+public class LoginFunctionality extends Base {
 	
 	@Test
 	public void verifyThatTheUserCanLoginWithValidCredentials() {
