@@ -18,6 +18,7 @@ public class LoginPage {
 	@FindBy(xpath="//input[@name='password']") WebElement passwordField;
 	@FindBy(xpath="//button[@type='submit']") WebElement signInButton;
 	@FindBy(xpath = "//li[contains(@class,'active')]") WebElement dashboardLink;
+	@FindBy(xpath = "//div[contains(@class,'alert')]") WebElement alertElement;
 	
 	public void enterUsernameOnUsernameField(String username) {
 		usernameField.sendKeys(username);
@@ -33,6 +34,10 @@ public class LoginPage {
 	
 	public boolean isDashboardLinkDisplayed() {
 		return dashboardLink.isDisplayed();
+	}
+	
+	public String getActualErrorMessage() {
+		return alertElement.getText();
 	}
 	
 	
