@@ -1,5 +1,8 @@
 package pages;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,17 +17,12 @@ public class ManageDeliveryBoyPage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath = "//div[contains(@class,'col-lg-3')]//child::a[@href='https://groceryapp.uniqassosiates.com/admin/list-deliveryboy']") WebElement manageDeliveryBoyLink;
 	@FindBy(xpath="//a[@href='javascript:void(0)']") WebElement searchLink;
 	@FindBy(xpath = "//input[@id='un']") WebElement nameField;
 	@FindBy(xpath = "//input[@id='ut']") WebElement emailField;
 	@FindBy(xpath = "//input[@id='ph']") WebElement phoneNumberField;
 	@FindBy(xpath = "//button[@value='sr']") WebElement searchButton;
-	@FindBy(xpath = "//table") WebElement table;
-	
-	public void clickOnManageDeliveryBoyLink() {
-		manageDeliveryBoyLink.click();
-	}
+	@FindBy(xpath = "//tr") List<WebElement> rowList;
 	
 	public void clickOnSearchLink() {
 		searchLink.click();
@@ -46,7 +44,15 @@ public class ManageDeliveryBoyPage {
 		searchButton.click();
 	}
 	
-	public boolean isTableDisplayedWithSearchResult() {
-		return table.isDisplayed();
+	public boolean verifyDetailsOfSearchedDeliveryBoy(String name, String email, String phoneNumber) {
+		boolean isSearchSuccessful = false;
+		rowList.remove(rowList.size()-1);
+		for (WebElement row : rowList) {
+			List<WebElement> columnList = row.findElements(By.xpath("//td"));
+			if(columnList.get(0).getText().contains(name) && columnList.get(1).getText().contains(email) && columnList.get(2).getText().contains(phoneNumber)) {
+				isSearchSuccessful = true;
+			}
+		}
+		return isSearchSuccessful;
 	}
 }

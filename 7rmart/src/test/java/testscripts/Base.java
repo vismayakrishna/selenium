@@ -15,7 +15,7 @@ public WebDriver driver;
 	public void initializeBrowser() {
 		driver = new ChromeDriver();
 		driver.get("https://groceryapp.uniqassosiates.com/admin ");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(70));
 		driver.manage().window().maximize();
 	}
 	

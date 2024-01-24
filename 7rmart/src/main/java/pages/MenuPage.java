@@ -7,9 +7,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import utilities.PageUtility;
+
 public class MenuPage {
 	
 	public WebDriver driver;
+	public PageUtility pageutility;
 
 	public MenuPage(WebDriver driver) {
 		this.driver = driver;
@@ -29,4 +32,9 @@ public class MenuPage {
 			} 
 		}	
 	}
+	
+//	public void dummyMethod() {
+//		pageutility = new PageUtility();
+//		pageutility.selectValueUsingSelectByIndex(menuLink, 1);
+//	}
 }

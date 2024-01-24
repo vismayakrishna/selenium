@@ -9,7 +9,7 @@ import pages.LoginPage;
 
 public class LoginTest extends Base {
 	
-	@Test
+	@Test(description = "Verify whether the user is able to login with valid credendtials")
 	public void verifyThatTheUserCanLoginWithValidCredentials() {
 		String username = "admin";
 		String password = "admin";
