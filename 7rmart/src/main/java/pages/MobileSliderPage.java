@@ -8,49 +8,46 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import utilities.FileUploadUtility;
-import utilities.WaitUtility;
+import utilities.PageUtility;
 
-public class ManageOfferCodePage {
-	
+public class MobileSliderPage {
+
 	public WebDriver driver;
+	public PageUtility pageutility;
 	public FileUploadUtility fileuploadutility;
-	public WaitUtility waitutility;
 
-	public ManageOfferCodePage(WebDriver driver) {
+	public MobileSliderPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
 	
 	@FindBy(xpath = "//a[@onclick='click_button(1)']") WebElement newButton;
-	@FindBy(xpath = "//input[@id='offer_code']") WebElement offerCodeField;
-	@FindBy(xpath = "//input[@value='yes']") WebElement yesRadioButton;
+	@FindBy(xpath = "//select[@id='cat_id']") WebElement categoryDropdown;
 	@FindBy(xpath = "//input[@id='main_img']") WebElement chooseFileButton;
 	@FindBy(xpath = "//button[@name='create']") WebElement saveButton;
+	@FindBy(xpath = "//div[contains(@class,'alert')]") WebElement alertElement;
 	
 	public void clickOnNewButton() {
 		newButton.click();
 	}
 	
-	public void enterOfferCodeOnOfferCodeField(String offerCode) {
-		offerCodeField.sendKeys(offerCode);
-	}
-	
-	public void clickOnYesRadioButton() {
-		yesRadioButton.click();
+	public void selectCategoryFromDropdown(String category) {
+		pageutility = new PageUtility();
+		pageutility.selectValueUsingSelectByVisibleText(categoryDropdown, category);
 	}
 	
 	public void uploadImage() throws AWTException {
-		String filePath = "D:\\Vismaya-Obsqura-Training\\Selenium\\promo-code.png";
+		String filePath = "D:\\Vismaya-Obsqura-Training\\Selenium\\iphone.png";
 		fileuploadutility = new FileUploadUtility();
-		waitutility = new WaitUtility();
-		waitutility.waitForElementToBeClickable(driver, chooseFileButton);
-		fileuploadutility.fileUploadUsingRobotClass(chooseFileButton,filePath);
+		fileuploadutility.fileUploadUsingRobotClass(chooseFileButton, filePath);
 	}
 	
 	public void clickOnSaveButton() {
-		waitutility = new WaitUtility();
-		waitutility.waitForElementToBeClickable(driver, saveButton);
 		saveButton.click();
+	}
+	
+	public String getTextFromAlertMessage() {
+		return alertElement.getText();
 	}
 	
 	
