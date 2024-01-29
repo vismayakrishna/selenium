@@ -16,7 +16,6 @@ public class ManageOfferCodeTest extends Base {
 		String password = "admin";
 		String menuToBeSelected = "Manage Offer Code";
 		String offerCode = "FIRST25";
-		String filePath = "D:\\Vismaya-Obsqura-Training\\Selenium\\promo-code.png";
 		LoginPage loginpage = new LoginPage(driver);
 		MenuPage menupage = new MenuPage(driver);
 		ManageOfferCodePage manageoffercodepage = new ManageOfferCodePage(driver);
@@ -27,7 +26,7 @@ public class ManageOfferCodeTest extends Base {
 		manageoffercodepage.clickOnNewButton();
 		manageoffercodepage.enterOfferCodeOnOfferCodeField(offerCode);
 		manageoffercodepage.clickOnYesRadioButton();
-		manageoffercodepage.uploadImage(filePath);
+		manageoffercodepage.uploadImage();
 		manageoffercodepage.clickOnSaveButton();
 	}
 }

@@ -7,7 +7,7 @@ import pages.MenuPage;
 
 public class MenuTest extends Base {
 	
-	@Test
+	@Test(description = "Verify whether the user can click different menu present in the dashboard")
 	public void verifyThatWhenTheUserClickOnMenuInTheDashboardItShouldNavigateToTheCorrespondingPage() {
 		String menu = "Manage Sliders";
 		String username = "admin";

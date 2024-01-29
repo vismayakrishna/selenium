@@ -37,8 +37,9 @@ public class ManageOfferCodePage {
 		yesRadioButton.click();
 	}
 	
-	public void uploadImage(String filePath) throws AWTException {
-		fileuploadutility.fileUploadUsingRobotClass(chooseFileButton, filePath);
+	public void uploadImage() throws AWTException {
+		String filePath = "D:\\Vismaya-Obsqura-Training\\Selenium\\promo-code.png";
+		fileuploadutility.fileUploadUsingRobotClass(chooseFileButton,filePath);
 		//fileuploadutility.fileUploadUsingSendKeys(chooseFileButton, filePath);
 	}
 	

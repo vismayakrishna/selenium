@@ -10,7 +10,7 @@ import pages.MenuPage;
 
 public class ManageDeliveryBoyTest extends Base {
 	
-	@Test
+	@Test(description = "Verify that the user can search a delivery boy in the Manage Delivery boy page by providing the name, email and phone number")
 	public void verifyThatWhenTheUserSearchDeliveryBoyUsingNameEmailAndPhoneNumberItShouldDisplayTheDetailsOfDeliveryBoy() {
 		String username = "admin";
 		String password = "admin";

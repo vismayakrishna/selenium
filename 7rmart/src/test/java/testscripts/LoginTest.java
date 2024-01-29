@@ -21,7 +21,7 @@ public class LoginTest extends Base {
 		assertTrue(isHomePageDisplayed, "User is unable to login with valid credentials");
 	}
 	
-	@Test
+	@Test(description = "Verify that the user will get an Alert message when sign in button is clicked with invalid username and valid password")
 	public void verifyThatTheUserWillGetAnErrorMessageWhenTheSignInButtonIsClickedWithAnInvalidUsernameAndValidPassword() {
 		String username = "adminn";
 		String password = "admin";
@@ -36,7 +36,7 @@ public class LoginTest extends Base {
 		assertEquals(expectedErrorMessage, actualErrorMessage, "Alert message is not shown when the sign in button is clicked with invalid Username and valid Password");
 	}
 	
-	@Test
+	@Test(description = "Verify that the user will get an Alert message when sign in button is clicked with valid username and invalid password")
 	public void verifyThatTheUserWillGetAnErrorMessageWhenTheSignInButtonIsClickedWithValidUsernameAndInvalidPassword() {
 		String username = "admin";
 		String password = "admins";
@@ -51,7 +51,7 @@ public class LoginTest extends Base {
 		assertEquals(expectedErrorMessage, actualErrorMessage, "Alert message is not shown when the sign in button is clicked with valid Username and invalid Password");
 	}
 	
-	@Test
+	@Test(description = "Verify that the user will get an Alert message when sign in button is clicked with invalid username and invalid password")
 	public void verifyThatTheUserWillGetAnErrorMessageWhenTheSignInButtonIsClickedWithAnInvalidUsernameAndInvalidPassword() {
 		String username = "adminn";
 		String password = "admins";
