@@ -8,6 +8,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import utilities.FileUploadUtility;
+import utilities.GeneralUtility;
+import utilities.PageUtility;
 import utilities.WaitUtility;
 
 public class ManageOfferCodePage {
@@ -15,6 +17,7 @@ public class ManageOfferCodePage {
 	public WebDriver driver;
 	public FileUploadUtility fileuploadutility;
 	public WaitUtility waitutility;
+	public PageUtility pageutility;
 
 	public ManageOfferCodePage(WebDriver driver) {
 		this.driver = driver;
@@ -24,8 +27,11 @@ public class ManageOfferCodePage {
 	@FindBy(xpath = "//a[@onclick='click_button(1)']") WebElement newButton;
 	@FindBy(xpath = "//input[@id='offer_code']") WebElement offerCodeField;
 	@FindBy(xpath = "//input[@value='yes']") WebElement yesRadioButton;
+	@FindBy(xpath = "//input[@id='offer_per']") WebElement percentageField;
+	@FindBy(xpath = "//input[@id='offer_price']") WebElement amountField;
 	@FindBy(xpath = "//input[@id='main_img']") WebElement chooseFileButton;
 	@FindBy(xpath = "//button[@name='create']") WebElement saveButton;
+	@FindBy(xpath = "//div[contains(@class,'alert')]") WebElement alertElement;
 	
 	public void clickOnNewButton() {
 		newButton.click();
@@ -39,18 +45,30 @@ public class ManageOfferCodePage {
 		yesRadioButton.click();
 	}
 	
+	public void enterPercentageOnPercentageField(String percentage) {
+		percentageField.sendKeys(percentage);
+	}
+	
+	public void enterAmountOnAmountField(String amount) {
+		amountField.sendKeys(amount);
+	}
+	
 	public void uploadImage() throws AWTException {
-		String filePath = "D:\\Vismaya-Obsqura-Training\\Selenium\\promo-code.png";
 		fileuploadutility = new FileUploadUtility();
 		waitutility = new WaitUtility();
 		waitutility.waitForElementToBeClickable(driver, chooseFileButton);
-		fileuploadutility.fileUploadUsingRobotClass(chooseFileButton,filePath);
+		fileuploadutility.fileUploadUsingSendKeys(chooseFileButton, GeneralUtility.PROMOCODE_IMG);
 	}
 	
 	public void clickOnSaveButton() {
 		waitutility = new WaitUtility();
 		waitutility.waitForElementToBeClickable(driver, saveButton);
-		saveButton.click();
+		pageutility = new PageUtility();
+		pageutility.javaScriptClick(driver, saveButton);
+	}
+	
+	public String getTextFromAlertMessage() {
+		return alertElement.getText();
 	}
 	
 	

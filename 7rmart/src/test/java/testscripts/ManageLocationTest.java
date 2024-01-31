@@ -7,13 +7,14 @@ import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.ManageLocationPage;
 import pages.MenuPage;
+import utilities.ExcelUtility;
 
 public class ManageLocationTest extends Base {
 	
 	@Test(description = "Verify that the user can add a new location in the manage location page")
 	public void verifyThatTheUserCanAddANewLocationInTheManageLocationPage() {
-		String username = "admin";
-		String password = "admin";
+		String username = ExcelUtility.getString(1, 0, "LoginPage");
+		String password = ExcelUtility.getString(1, 1, "LoginPage");
 		String menuToBeSelected = "Manage Location";
 		String country = "United Kingdom";
 		String state = "Belfast";

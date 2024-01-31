@@ -8,13 +8,16 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import utilities.FileUploadUtility;
+import utilities.GeneralUtility;
 import utilities.PageUtility;
+import utilities.WaitUtility;
 
 public class MobileSliderPage {
 
 	public WebDriver driver;
 	public PageUtility pageutility;
 	public FileUploadUtility fileuploadutility;
+	public WaitUtility waitutility;
 
 	public MobileSliderPage(WebDriver driver) {
 		this.driver = driver;
@@ -37,12 +40,15 @@ public class MobileSliderPage {
 	}
 	
 	public void uploadImage() throws AWTException {
-		String filePath = "D:\\Vismaya-Obsqura-Training\\Selenium\\iphone.png";
 		fileuploadutility = new FileUploadUtility();
-		fileuploadutility.fileUploadUsingRobotClass(chooseFileButton, filePath);
+		waitutility = new WaitUtility();
+		waitutility.waitForElementToBeClickable(driver, chooseFileButton);
+		fileuploadutility.fileUploadUsingSendKeys(chooseFileButton, GeneralUtility.SLIDER_IMG);
 	}
 	
 	public void clickOnSaveButton() {
+		waitutility = new WaitUtility();
+		waitutility.waitForElementToBeClickable(driver, saveButton);
 		saveButton.click();
 	}
 	

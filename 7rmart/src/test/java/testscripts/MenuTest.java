@@ -4,14 +4,15 @@ import org.testng.annotations.Test;
 
 import pages.LoginPage;
 import pages.MenuPage;
+import utilities.ExcelUtility;
 
 public class MenuTest extends Base {
 	
 	@Test(description = "Verify whether the user can click different menu present in the dashboard")
 	public void verifyThatWhenTheUserClickOnMenuInTheDashboardItShouldNavigateToTheCorrespondingPage() {
 		String menu = "Manage Sliders";
-		String username = "admin";
-		String password = "admin";
+		String username = ExcelUtility.getString(1, 0, "LoginPage");
+		String password = ExcelUtility.getString(1, 1, "LoginPage");
 		LoginPage loginPage = new LoginPage(driver);
 		MenuPage menupage = new MenuPage(driver);
 		loginPage.enterUsernameOnUsernameField(username);

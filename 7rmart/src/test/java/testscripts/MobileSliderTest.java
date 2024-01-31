@@ -8,17 +8,18 @@ import org.testng.annotations.Test;
 
 import pages.LoginPage;
 import pages.MobileSliderPage;
+import utilities.ExcelUtility;
 import pages.MenuPage;
 
 public class MobileSliderTest extends Base {
 	
 	@Test(description = "Verify that the user can add a new slider in the mobile slider page")
 	public void verifyThatTheUserCanAddANewSliderInTheMobileSliderPage() throws AWTException {
-		String username = "admin";
-		String password = "admin";
+		String username = ExcelUtility.getString(1, 0, "LoginPage");
+		String password = ExcelUtility.getString(1, 1, "LoginPage");
 		String menuToBeSelected = "Mobile Slider";
 		String category = "Apple";
-		String expectedAlertMessage = "×\nAlert!\nMobile Slider Created Successfully";
+		String expectedAlertMessage = "�\nAlert!\nMobile Slider Created Successfully";
 		LoginPage loginpage = new LoginPage(driver);
 		MenuPage menupage = new MenuPage(driver);
 		MobileSliderPage mobilesliderpage = new MobileSliderPage(driver);

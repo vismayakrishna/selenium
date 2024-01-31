@@ -7,13 +7,14 @@ import org.testng.annotations.Test;
 import pages.AdminUsersPage;
 import pages.LoginPage;
 import pages.MenuPage;
+import utilities.ExcelUtility;
 
 public class AdminUsersTest extends Base {
 	
 	@Test(description = "Verify whether a new user can be added to the admin users page")
 	public void verifyWhetherTheUserIsAbleToAddANewUserInTheAdminUsersPage() {
-		String username = "admin";
-		String password = "admin";
+		String username = ExcelUtility.getString(1, 0, "LoginPage");
+		String password = ExcelUtility.getString(1, 1, "LoginPage");
 		String menuToBeSelected = "Admin Users";
 		String newUsername = "Vismayar";
 		String newPassword = "vismaya";

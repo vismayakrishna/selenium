@@ -6,13 +6,14 @@ import static org.testng.Assert.assertTrue;
 import org.testng.annotations.Test;
 
 import pages.LoginPage;
+import utilities.ExcelUtility;
 
 public class LoginTest extends Base {
 	
 	@Test(description = "Verify whether the user is able to login with valid credendtials")
 	public void verifyThatTheUserCanLoginWithValidCredentials() {
-		String username = "admin";
-		String password = "admin";
+		String username = ExcelUtility.getString(1, 0, "LoginPage");
+		String password = ExcelUtility.getString(1, 1, "LoginPage");
 		LoginPage loginPage = new LoginPage(driver);
 		loginPage.enterUsernameOnUsernameField(username);
 		loginPage.enterPasswordOnPasswordField(password);
@@ -23,8 +24,8 @@ public class LoginTest extends Base {
 	
 	@Test(description = "Verify that the user will get an Alert message when sign in button is clicked with invalid username and valid password")
 	public void verifyThatTheUserWillGetAnErrorMessageWhenTheSignInButtonIsClickedWithAnInvalidUsernameAndValidPassword() {
-		String username = "adminn";
-		String password = "admin";
+		String username = ExcelUtility.getString(2, 0, "LoginPage");
+		String password = ExcelUtility.getString(2, 1, "LoginPage");
 		String expectedErrorMessage = "×\n"
 				+ "Alert!\n"
 				+ "Invalid Username/Password";
@@ -38,8 +39,8 @@ public class LoginTest extends Base {
 	
 	@Test(description = "Verify that the user will get an Alert message when sign in button is clicked with valid username and invalid password")
 	public void verifyThatTheUserWillGetAnErrorMessageWhenTheSignInButtonIsClickedWithValidUsernameAndInvalidPassword() {
-		String username = "admin";
-		String password = "admins";
+		String username = ExcelUtility.getString(3, 0, "LoginPage");
+		String password = ExcelUtility.getString(3, 1, "LoginPage");
 		String expectedErrorMessage = "×\n"
 				+ "Alert!\n"
 				+ "Invalid Username/Password";
@@ -53,8 +54,8 @@ public class LoginTest extends Base {
 	
 	@Test(description = "Verify that the user will get an Alert message when sign in button is clicked with invalid username and invalid password")
 	public void verifyThatTheUserWillGetAnErrorMessageWhenTheSignInButtonIsClickedWithAnInvalidUsernameAndInvalidPassword() {
-		String username = "adminn";
-		String password = "admins";
+		String username = ExcelUtility.getString(4, 0, "LoginPage");
+		String password = ExcelUtility.getString(4, 1, "LoginPage");
 		String expectedErrorMessage = "×\n"
 				+ "Alert!\n"
 				+ "Invalid Username/Password";

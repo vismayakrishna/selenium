@@ -7,13 +7,14 @@ import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.ManageDeliveryBoyPage;
 import pages.MenuPage;
+import utilities.ExcelUtility;
 
 public class ManageDeliveryBoyTest extends Base {
 	
 	@Test(description = "Verify that the user can search a delivery boy in the Manage Delivery boy page by providing the name, email and phone number")
 	public void verifyThatWhenTheUserSearchDeliveryBoyUsingNameEmailAndPhoneNumberItShouldDisplayTheDetailsOfDeliveryBoy() {
-		String username = "admin";
-		String password = "admin";
+		String username = ExcelUtility.getString(1, 0, "LoginPage");
+		String password = ExcelUtility.getString(1, 1, "LoginPage");
 		String menuToBeSelected = "Manage Delivery Boy";
 		String name = "Fleta Shields";
 		String email = "Everardo@gmail.com";
