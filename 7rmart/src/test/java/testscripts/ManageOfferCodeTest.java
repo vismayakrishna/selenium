@@ -17,11 +17,11 @@ public class ManageOfferCodeTest extends Base {
 	public void verifyWhetherTheUserIsAbleToAddANewOfferCodeInTheManageOfferCodePage() throws AWTException {
 		String username = ExcelUtility.getString(1, 0, "LoginPage");
 		String password = ExcelUtility.getString(1, 1, "LoginPage");
-		String menuToBeSelected = "Manage Offer Code";
-		String offerCode = "FIRST25";
-		String percentage = "25";
-		String amount = "1000";
-		String expectedAlertMessage = "×\nAlert!\nOffer Created Successfully";
+		String menuToBeSelected = ExcelUtility.getString(6, 0, "MenuPage");
+		String offerCode = ExcelUtility.getString(0, 1, "ManageOfferCodePage");
+		String percentage = ExcelUtility.getString(1, 1, "ManageOfferCodePage");
+		String amount = ExcelUtility.getString(2, 1, "ManageOfferCodePage");
+		String expectedAlertMessage = ExcelUtility.getString(3, 1, "ManageOfferCodePage");
 		LoginPage loginpage = new LoginPage(driver);
 		MenuPage menupage = new MenuPage(driver);
 		ManageOfferCodePage manageoffercodepage = new ManageOfferCodePage(driver);

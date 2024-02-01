@@ -15,10 +15,10 @@ public class ManageDeliveryBoyTest extends Base {
 	public void verifyThatWhenTheUserSearchDeliveryBoyUsingNameEmailAndPhoneNumberItShouldDisplayTheDetailsOfDeliveryBoy() {
 		String username = ExcelUtility.getString(1, 0, "LoginPage");
 		String password = ExcelUtility.getString(1, 1, "LoginPage");
-		String menuToBeSelected = "Manage Delivery Boy";
-		String name = "Fleta Shields";
-		String email = "Everardo@gmail.com";
-		String phoneNumber = "4825119298";
+		String menuToBeSelected = ExcelUtility.getString(8, 0, "MenuPage");
+		String name = ExcelUtility.getString(0, 1, "ManageDeliveryBoyPage");
+		String email = ExcelUtility.getString(1, 1, "ManageDeliveryBoyPage");
+		String phoneNumber = ExcelUtility.getString(2, 1, "ManageDeliveryBoyPage");
 		LoginPage loginpage = new LoginPage(driver);
 		MenuPage menupage = new MenuPage(driver);
 		ManageDeliveryBoyPage managedeliveryboypage = new ManageDeliveryBoyPage(driver);

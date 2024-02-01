@@ -15,12 +15,12 @@ public class ManageLocationTest extends Base {
 	public void verifyThatTheUserCanAddANewLocationInTheManageLocationPage() {
 		String username = ExcelUtility.getString(1, 0, "LoginPage");
 		String password = ExcelUtility.getString(1, 1, "LoginPage");
-		String menuToBeSelected = "Manage Location";
-		String country = "United Kingdom";
-		String state = "Belfast";
-		String location = "Kochi";
-		String deliveryCharge = "100";
-		String expectedAlertMessage = "×\nAlert!\nLocation Created Successfully";
+		String menuToBeSelected = ExcelUtility.getString(11, 0, "MenuPage");
+		String country = ExcelUtility.getString(0, 1, "ManageLocationPage");
+		String state = ExcelUtility.getString(1, 1, "ManageLocationPage");
+		String location = ExcelUtility.getString(2, 1, "ManageLocationPage");
+		String deliveryCharge = ExcelUtility.getString(3, 1, "ManageLocationPage");
+		String expectedAlertMessage = ExcelUtility.getString(4, 1, "ManageLocationPage");
 		LoginPage loginpage = new LoginPage(driver);
 		MenuPage menupage = new MenuPage(driver);
 		ManageLocationPage managelocationpage = new ManageLocationPage(driver);

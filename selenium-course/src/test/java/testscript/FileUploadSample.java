@@ -10,10 +10,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
+import com.github.javafaker.Faker;
+
 public class FileUploadSample extends Base {
 	
 	@Test
 	public void fileUpload() {
+		Faker faker = new Faker();
+		String name = faker.name().firstName();
 		driver.navigate().to("https://demo.guru99.com/test/upload/");
 		WebElement chooseFileButton = driver.findElement(By.xpath("//input[@id='uploadfile_0']"));
 		chooseFileButton.sendKeys("D:\\Vismaya-Obsqura-Training\\Selenium\\github-url.pdf");

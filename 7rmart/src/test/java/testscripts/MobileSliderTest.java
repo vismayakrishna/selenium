@@ -17,9 +17,9 @@ public class MobileSliderTest extends Base {
 	public void verifyThatTheUserCanAddANewSliderInTheMobileSliderPage() throws AWTException {
 		String username = ExcelUtility.getString(1, 0, "LoginPage");
 		String password = ExcelUtility.getString(1, 1, "LoginPage");
-		String menuToBeSelected = "Mobile Slider";
-		String category = "Apple";
-		String expectedAlertMessage = "�\nAlert!\nMobile Slider Created Successfully";
+		String menuToBeSelected = ExcelUtility.getString(12, 0, "MenuPage");
+		String category = ExcelUtility.getString(0, 1, "MobileSliderPage");
+		String expectedAlertMessage = ExcelUtility.getString(1, 1, "MobileSliderPage");
 		LoginPage loginpage = new LoginPage(driver);
 		MenuPage menupage = new MenuPage(driver);
 		MobileSliderPage mobilesliderpage = new MobileSliderPage(driver);

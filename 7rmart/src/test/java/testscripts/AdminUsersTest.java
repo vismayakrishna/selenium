@@ -15,11 +15,11 @@ public class AdminUsersTest extends Base {
 	public void verifyWhetherTheUserIsAbleToAddANewUserInTheAdminUsersPage() {
 		String username = ExcelUtility.getString(1, 0, "LoginPage");
 		String password = ExcelUtility.getString(1, 1, "LoginPage");
-		String menuToBeSelected = "Admin Users";
-		String newUsername = "Vismayar";
-		String newPassword = "vismaya";
-		String newUsertype = "staff";
-		String expectedAlertMessage = "×\nAlert!\nUser Created Successfully";
+		String menuToBeSelected = ExcelUtility.getString(2, 0, "MenuPage");
+		String newUsername = ExcelUtility.getString(0, 1, "AdminUsersPage");
+		String newPassword = ExcelUtility.getString(1, 1, "AdminUsersPage");
+		String newUsertype = ExcelUtility.getString(2, 1, "AdminUsersPage");
+		String expectedAlertMessage = ExcelUtility.getString(3, 1, "AdminUsersPage");
 		LoginPage loginpage = new LoginPage(driver);
 		MenuPage menupage = new MenuPage(driver);
 		AdminUsersPage adminuserspage = new AdminUsersPage(driver);
