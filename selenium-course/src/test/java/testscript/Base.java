@@ -16,7 +16,7 @@ public class Base {
 		driver = new ChromeDriver();
 		//driver.get("https://selenium.obsqurazone.com/simple-form-demo.php");
 		driver.get("https://www.firstcry.com/");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(50));
 		driver.manage().window().maximize();
 	}
 	
