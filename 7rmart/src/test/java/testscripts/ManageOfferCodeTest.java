@@ -3,6 +3,7 @@ package testscripts;
 import static org.testng.Assert.assertEquals;
 
 import java.awt.AWTException;
+import java.io.IOException;
 
 import org.testng.annotations.Test;
 
@@ -14,13 +15,13 @@ import utilities.ExcelUtility;
 public class ManageOfferCodeTest extends Base {
 	
 	@Test(description = "Verify whether the user is able to add a new offer code in the manage offer code page")
-	public void verifyWhetherTheUserIsAbleToAddANewOfferCodeInTheManageOfferCodePage() throws AWTException {
+	public void verifyWhetherTheUserIsAbleToAddANewOfferCodeInTheManageOfferCodePage() throws AWTException, IOException {
 		String username = ExcelUtility.getString(1, 0, "LoginPage");
 		String password = ExcelUtility.getString(1, 1, "LoginPage");
 		String menuToBeSelected = ExcelUtility.getString(6, 0, "MenuPage");
 		String offerCode = ExcelUtility.getString(0, 1, "ManageOfferCodePage");
-		String percentage = ExcelUtility.getString(1, 1, "ManageOfferCodePage");
-		String amount = ExcelUtility.getString(2, 1, "ManageOfferCodePage");
+		String percentage = ExcelUtility.getIntegerData(1, 1, "ManageOfferCodePage");
+		String amount = ExcelUtility.getIntegerData(2, 1, "ManageOfferCodePage");
 		String expectedAlertMessage = ExcelUtility.getString(3, 1, "ManageOfferCodePage");
 		LoginPage loginpage = new LoginPage(driver);
 		MenuPage menupage = new MenuPage(driver);

@@ -49,7 +49,7 @@ public class ExcelUtility {
 		sh = wb.getSheet(sheet);
 		Row r = sh.getRow(a);
 		Cell c = r.getCell(b);
-		int x = (int) c.getNumericCellValue();
+		long x = (long)c.getNumericCellValue();
 		return String.valueOf(x);
 	}
 
