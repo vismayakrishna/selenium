@@ -10,9 +10,9 @@ public class MenuTest extends Base {
 	
 	@Test(description = "Verify whether the user can click different menu present in the dashboard")
 	public void verifyThatWhenTheUserClickOnMenuInTheDashboardItShouldNavigateToTheCorrespondingPage() {
-		String menu = "Manage Expense";
 		String username = ExcelUtility.getString(1, 0, "LoginPage");
 		String password = ExcelUtility.getString(1, 1, "LoginPage");
+		String menu = ExcelUtility.getString(8, 0, "MenuPage");
 		LoginPage loginPage = new LoginPage(driver);
 		MenuPage menupage = new MenuPage(driver);
 		loginPage.enterUsernameOnUsernameField(username);

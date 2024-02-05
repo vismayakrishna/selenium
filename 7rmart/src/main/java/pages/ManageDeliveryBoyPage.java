@@ -23,7 +23,6 @@ public class ManageDeliveryBoyPage {
 	@FindBy(xpath = "//input[@id='ph']") WebElement phoneNumberField;
 	@FindBy(xpath = "//button[@value='sr']") WebElement searchButton;
 	@FindBy(xpath = "//tr") List<WebElement> rowList;
-	//@FindBy(xpath = "(//table[contains(@class, 'table')]//tr)[2]//td") WebElement fristRow;
 	
 	public void clickOnSearchLink() {
 		searchLink.click();
