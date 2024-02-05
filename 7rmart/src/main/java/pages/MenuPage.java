@@ -21,6 +21,7 @@ public class MenuPage {
 	
 	@FindBy(xpath = "//div[contains(@class,'small')]//child::div[@class='inner']") List<WebElement> menuList;
 	@FindBy(xpath = "//a[@class='small-box-footer']") List<WebElement> menuLink;
+	@FindBy(xpath = "//h1") WebElement headerElement;
 	
 	public void clickOnTheMenuInDashboard(String menuToBeClicked) {
 		int menuIndex;
@@ -32,5 +33,9 @@ public class MenuPage {
 				break;
 			} 
 		}	
+	}
+	
+	public String getHeaderOfThePage() {
+		return headerElement.getText();
 	}
 }
