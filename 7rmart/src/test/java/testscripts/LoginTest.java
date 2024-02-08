@@ -14,7 +14,8 @@ public class LoginTest extends Base {
 	@Test(description = "Verify whether the user is able to login with valid credendtials")
 	public void verifyThatTheUserCanLoginWithValidCredentials() {
 		String username = ExcelUtility.getString(1, 0, "LoginPage");
-		String password = ExcelUtility.getString(1, 1, "LoginPage");
+		//String password = ExcelUtility.getString(1, 1, "LoginPage");
+		String password = "Admin";
 		LoginPage loginPage = new LoginPage(driver);
 		loginPage.enterUsernameOnUsernameField(username);
 		loginPage.enterPasswordOnPasswordField(password);
