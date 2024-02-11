@@ -11,9 +11,19 @@ public class RandomUtility {
 		return faker.name().firstName();
 	}
 	
+	public String generateCode() {
+		faker = new Faker();
+		return faker.currency().code();
+	}
+	
 	public String generateLastName() {
 		faker = new Faker();
 		return faker.name().lastName();
+	}
+	
+	public String generateFullName() {
+		faker = new Faker();
+		return faker.name().fullName();
 	}
 	
 	public String generatePhoneNumber() {

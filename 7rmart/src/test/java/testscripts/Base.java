@@ -13,6 +13,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
 import utilities.ScreenshotUtility;
+import utilities.WaitUtility;
 
 public class Base {
 	
@@ -31,7 +32,7 @@ public class Base {
 			throw new Exception("Invalid browser");
 		}
 		driver.get("https://groceryapp.uniqassosiates.com/admin ");
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(70));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(WaitUtility.IMPLICIT_WAIT));
 		driver.manage().window().maximize();
 	}
 	

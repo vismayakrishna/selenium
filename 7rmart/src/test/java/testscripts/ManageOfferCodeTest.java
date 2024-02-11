@@ -11,15 +11,18 @@ import pages.LoginPage;
 import pages.ManageOfferCodePage;
 import pages.MenuPage;
 import utilities.ExcelUtility;
+import utilities.RandomUtility;
 
 public class ManageOfferCodeTest extends Base {
 	
 	@Test(description = "Verify whether the user is able to add a new offer code in the manage offer code page")
 	public void verifyWhetherTheUserIsAbleToAddANewOfferCodeInTheManageOfferCodePage() throws AWTException, IOException {
+		RandomUtility randomutility = new RandomUtility();
 		String username = ExcelUtility.getString(1, 0, "LoginPage");
 		String password = ExcelUtility.getString(1, 1, "LoginPage");
 		String menuToBeSelected = ExcelUtility.getString(6, 0, "MenuPage");
-		String offerCode = ExcelUtility.getString(0, 1, "ManageOfferCodePage");
+		//String offerCode = ExcelUtility.getString(0, 1, "ManageOfferCodePage");
+		String offerCode = randomutility.generateCode();
 		String percentage = ExcelUtility.getIntegerData(1, 1, "ManageOfferCodePage");
 		String amount = ExcelUtility.getIntegerData(2, 1, "ManageOfferCodePage");
 		String expectedAlertMessage = ExcelUtility.getString(3, 1, "ManageOfferCodePage");
