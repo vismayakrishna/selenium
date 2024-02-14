@@ -6,11 +6,12 @@ import org.testng.annotations.Test;
 
 import pages.LoginPage;
 import pages.MenuPage;
+import retry.Retry;
 import utilities.ExcelUtility;
 
 public class MenuTest extends Base {
 	
-	@Test(description = "Verify whether the user can click different menu present in the dashboard")
+	@Test(retryAnalyzer = Retry.class, description = "Verify whether the user can click different menu present in the dashboard")
 	public void verifyThatWhenTheUserClickOnMenuInTheDashboardItShouldNavigateToTheCorrespondingPage() {
 		String username = ExcelUtility.getString(1, 0, "LoginPage");
 		String password = ExcelUtility.getString(1, 1, "LoginPage");

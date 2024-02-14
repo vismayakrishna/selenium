@@ -9,11 +9,12 @@ import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.ManageOrdersPage;
 import pages.MenuPage;
+import retry.Retry;
 import utilities.ExcelUtility;
 
 public class ManageOrdersTest extends Base {
 	
-	@Test(description = "Verify that the user can see the order details in the manage order page")
+	@Test(retryAnalyzer = Retry.class, description = "Verify that the user can see the order details in the manage order page")
 	public void verifyThatTheUserCanSeeTheOrderDetailsInTheManageOrdersPage() throws IOException {
 		String username = ExcelUtility.getString(1, 0, "LoginPage");
 		String password = ExcelUtility.getString(1, 1, "LoginPage");

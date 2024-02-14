@@ -9,11 +9,12 @@ import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.ManageDeliveryBoyPage;
 import pages.MenuPage;
+import retry.Retry;
 import utilities.ExcelUtility;
 
 public class ManageDeliveryBoyTest extends Base {
 	
-	@Test(description = "Verify that the user can search a delivery boy in the Manage Delivery boy page by providing the name, email and phone number")
+	@Test(retryAnalyzer = Retry.class, description = "Verify that the user can search a delivery boy in the Manage Delivery boy page by providing the name, email and phone number")
 	public void verifyThatWhenTheUserSearchDeliveryBoyUsingNameEmailAndPhoneNumberItShouldDisplayTheDetailsOfDeliveryBoy() throws IOException {
 		String username = ExcelUtility.getString(1, 0, "LoginPage");
 		String password = ExcelUtility.getString(1, 1, "LoginPage");

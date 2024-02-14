@@ -9,11 +9,12 @@ import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.ManageExpensePage;
 import pages.MenuPage;
+import retry.Retry;
 import utilities.ExcelUtility;
 
 public class ManageExpenseTest extends Base {
 
-	@Test(description = "Verify that the user can add a new expense in the manage expense page")
+	@Test(retryAnalyzer = Retry.class, description = "Verify that the user can add a new expense in the manage expense page")
 	public void verifyThatTheUserCanAddANewExpenseInTheManageExpensePage() throws IOException {
 		String username = ExcelUtility.getString(1, 0, "LoginPage");
 		String password = ExcelUtility.getString(1, 1, "LoginPage");

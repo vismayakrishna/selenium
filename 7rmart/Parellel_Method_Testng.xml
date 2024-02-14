@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
+<suite name="Parellel Method Testing" parallel="methods" thread-count="2">
 	<listeners>
 		<listener class-name="generatereport.Listeners"></listener>
 	</listeners>
 	<parameter name="browser" value="chrome"></parameter>
-  <test thread-count="5" name="Test">
+  <test name="Test">
     <classes>
       <class name="testscripts.LoginTest">
-			<methods>
-				<include name="verifyThatTheUserCanLoginWithValidCredentials"></include>
-				<exclude name="verifyThatTheUserWillGetAnErrorMessageWhenTheSignInButtonIsClickedWithAnInvalidUsernameAndValidPassword"></exclude>
-			</methods>
+		  <methods>
+			  <include name="verifyThatTheUserCanLoginWithValidCredentials"></include>
+			  <include name="verifyThatTheUserWillGetAnErrorMessageWhenTheSignInButtonIsClickedWithValidUsernameAndInvalidPassword"></include>
+		  </methods>
 	  </class>
     </classes>
   </test> <!-- Test -->

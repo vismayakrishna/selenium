@@ -8,12 +8,13 @@ import org.testng.annotations.Test;
 
 import pages.LoginPage;
 import pages.MobileSliderPage;
+import retry.Retry;
 import utilities.ExcelUtility;
 import pages.MenuPage;
 
 public class MobileSliderTest extends Base {
 	
-	@Test(description = "Verify that the user can add a new slider in the mobile slider page")
+	@Test(retryAnalyzer = Retry.class, description = "Verify that the user can add a new slider in the mobile slider page")
 	public void verifyThatTheUserCanAddANewSliderInTheMobileSliderPage() throws AWTException {
 		String username = ExcelUtility.getString(1, 0, "LoginPage");
 		String password = ExcelUtility.getString(1, 1, "LoginPage");
