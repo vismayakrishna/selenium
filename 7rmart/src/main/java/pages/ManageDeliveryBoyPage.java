@@ -17,12 +17,12 @@ public class ManageDeliveryBoyPage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath="//a[@href='javascript:void(0)']") WebElement searchLink;
-	@FindBy(xpath = "//input[@id='un']") WebElement nameField;
-	@FindBy(xpath = "//input[@id='ut']") WebElement emailField;
-	@FindBy(xpath = "//input[@id='ph']") WebElement phoneNumberField;
-	@FindBy(xpath = "//button[@value='sr']") WebElement searchButton;
-	@FindBy(xpath = "//tr") List<WebElement> rowList;
+	@FindBy(xpath="//a[@href='javascript:void(0)']") private WebElement searchLink;
+	@FindBy(xpath = "//input[@id='un']") private WebElement nameField;
+	@FindBy(xpath = "//input[@id='ut']") private WebElement emailField;
+	@FindBy(xpath = "//input[@id='ph']") private WebElement phoneNumberField;
+	@FindBy(xpath = "//button[@value='sr']") private WebElement searchButton;
+	@FindBy(xpath = "//tr") private List<WebElement> rowList;
 	
 	public void clickOnSearchLink() {
 		searchLink.click();

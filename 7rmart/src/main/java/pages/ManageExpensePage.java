@@ -22,17 +22,17 @@ public class ManageExpensePage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath = "//a[@onclick='click_button(1)']") WebElement newButton;
-	@FindBy(xpath = "//select[@name='user_id']") WebElement userDropdown;
-	@FindBy(xpath = "//select[@name='ex_cat']") WebElement categoryDropdown;
-	@FindBy(xpath = "//select[@name='order_id']") WebElement orderIdDropdown;
-	@FindBy(xpath = "//select[@name='purchase_id']") WebElement purchaseIdDropdown;
-	@FindBy(xpath = "//select[@name='ex_type']") WebElement expenseTypeDropdown;
-	@FindBy(xpath = "//input[@id='amount']") WebElement amountField;
-	@FindBy(xpath = "//textarea") WebElement remarksField;
-	@FindBy(xpath = "//input[@type='file']") WebElement chooseFileButton;
-	@FindBy(xpath = "//button[@name='create']") WebElement saveButton;
-	@FindBy(xpath = "//div[contains(@class,'alert')]") WebElement alertElement;
+	@FindBy(xpath = "//a[@onclick='click_button(1)']") private WebElement newButton;
+	@FindBy(xpath = "//select[@name='user_id']") private WebElement userDropdown;
+	@FindBy(xpath = "//select[@name='ex_cat']") private WebElement categoryDropdown;
+	@FindBy(xpath = "//select[@name='order_id']") private WebElement orderIdDropdown;
+	@FindBy(xpath = "//select[@name='purchase_id']") private WebElement purchaseIdDropdown;
+	@FindBy(xpath = "//select[@name='ex_type']") private WebElement expenseTypeDropdown;
+	@FindBy(xpath = "//input[@id='amount']") private WebElement amountField;
+	@FindBy(xpath = "//textarea") private WebElement remarksField;
+	@FindBy(xpath = "//input[@type='file']") private WebElement chooseFileButton;
+	@FindBy(xpath = "//button[@name='create']") private WebElement saveButton;
+	@FindBy(xpath = "//div[contains(@class,'alert')]") private WebElement alertElement;
 	
 	public void clickOnNewButton() {
 		newButton.click();

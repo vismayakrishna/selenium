@@ -24,11 +24,11 @@ public class MobileSliderPage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath = "//a[@onclick='click_button(1)']") WebElement newButton;
-	@FindBy(xpath = "//select[@id='cat_id']") WebElement categoryDropdown;
-	@FindBy(xpath = "//input[@id='main_img']") WebElement chooseFileButton;
-	@FindBy(xpath = "//button[@name='create']") WebElement saveButton;
-	@FindBy(xpath = "//div[contains(@class,'alert')]") WebElement alertElement;
+	@FindBy(xpath = "//a[@onclick='click_button(1)']") private WebElement newButton;
+	@FindBy(xpath = "//select[@id='cat_id']") private WebElement categoryDropdown;
+	@FindBy(xpath = "//input[@id='main_img']") private WebElement chooseFileButton;
+	@FindBy(xpath = "//button[@name='create']") private WebElement saveButton;
+	@FindBy(xpath = "//div[contains(@class,'alert')]") private WebElement alertElement;
 	
 	public void clickOnNewButton() {
 		newButton.click();

@@ -24,14 +24,14 @@ public class ManageOfferCodePage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath = "//a[@onclick='click_button(1)']") WebElement newButton;
-	@FindBy(xpath = "//input[@id='offer_code']") WebElement offerCodeField;
-	@FindBy(xpath = "//input[@value='yes']") WebElement yesRadioButton;
-	@FindBy(xpath = "//input[@id='offer_per']") WebElement percentageField;
-	@FindBy(xpath = "//input[@id='offer_price']") WebElement amountField;
-	@FindBy(xpath = "//input[@id='main_img']") WebElement chooseFileButton;
-	@FindBy(xpath = "//button[@name='create']") WebElement saveButton;
-	@FindBy(xpath = "//div[contains(@class,'alert')]") WebElement alertElement;
+	@FindBy(xpath = "//a[@onclick='click_button(1)']") private WebElement newButton;
+	@FindBy(xpath = "//input[@id='offer_code']") private WebElement offerCodeField;
+	@FindBy(xpath = "//input[@value='yes']") private WebElement yesRadioButton;
+	@FindBy(xpath = "//input[@id='offer_per']") private WebElement percentageField;
+	@FindBy(xpath = "//input[@id='offer_price']") private WebElement amountField;
+	@FindBy(xpath = "//input[@id='main_img']") private WebElement chooseFileButton;
+	@FindBy(xpath = "//button[@name='create']") private WebElement saveButton;
+	@FindBy(xpath = "//div[contains(@class,'alert')]") private WebElement alertElement;
 	
 	public void clickOnNewButton() {
 		newButton.click();

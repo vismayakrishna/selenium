@@ -1,7 +1,9 @@
 package testscripts;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,16 +14,23 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
+import utilities.GeneralUtility;
 import utilities.ScreenshotUtility;
 import utilities.WaitUtility;
 
 public class Base {
 	
 	public WebDriver driver;
+	public Properties properties;
+	public FileInputStream fileinputstream;
 	
 	@BeforeMethod(alwaysRun = true)
 	@Parameters("browser")
 	public void initializeBrowser(String browser) throws Exception {
+		properties = new Properties();
+		fileinputstream = new FileInputStream(GeneralUtility.CONFIG_FILE);
+		properties.load(fileinputstream);
+		
 		if(browser.equalsIgnoreCase("chrome")) {
 			driver = new ChromeDriver();
 		} else if(browser.equalsIgnoreCase("edge")) {
@@ -31,7 +40,7 @@ public class Base {
 		} else {
 			throw new Exception("Invalid browser");
 		}
-		driver.get("https://groceryapp.uniqassosiates.com/admin ");
+		driver.get(properties.getProperty("URL"));
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(WaitUtility.IMPLICIT_WAIT));
 		driver.manage().window().maximize();
 	}

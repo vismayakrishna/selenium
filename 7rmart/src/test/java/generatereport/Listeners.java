@@ -16,6 +16,8 @@ import utilities.ExtentReportUtility;
 public class Listeners extends Base implements ITestListener {
 
 	ExtentTest test;
+	String testMethodName;
+	WebDriver driver;
 
 	ExtentReports extent = ExtentReportUtility.createExtentReports();
 	ThreadLocal<ExtentTest> extentTest = new ThreadLocal<ExtentTest>();
@@ -35,8 +37,8 @@ public class Listeners extends Base implements ITestListener {
 		ITestListener.super.onTestFailure(result);
 		extentTest.get().log(Status.FAIL, "Test Failed");
 		extentTest.get().fail(result.getThrowable());
-		WebDriver driver = null;
-		String testMethodName = result.getMethod().getMethodName();
+		driver = null;
+		testMethodName = result.getMethod().getMethodName();
 		try {
 			driver = (WebDriver) result.getTestClass().getRealClass().getDeclaredField("driver")
 					.get(result.getInstance());
@@ -64,7 +66,7 @@ public class Listeners extends Base implements ITestListener {
 	public void onTestSkipped(ITestResult result) {
 		ITestListener.super.onTestSkipped(result);
 		extentTest.get().log(Status.SKIP, "Test Skipped");
-		String testMethodName = result.getMethod().getMethodName();
+		testMethodName = result.getMethod().getMethodName();
 
 	}
 

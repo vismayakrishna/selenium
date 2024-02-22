@@ -17,8 +17,8 @@ public class ManageOrdersPage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath = "//table[contains(@class,'table-bordered')]//tbody//tr") List<WebElement> rowList;
-	@FindBy(xpath = "//div[contains(@class,'text-left')]") WebElement textElement;
+	@FindBy(xpath = "//table[contains(@class,'table-bordered')]//tbody//tr") private List<WebElement> rowList;
+	@FindBy(xpath = "//div[contains(@class,'text-left')]") private WebElement textElement;
 	
 	public void clickOnViewButton(String orderId) {
 		for (WebElement row : rowList) {

@@ -14,11 +14,11 @@ public class PushNotificationPage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath = "//i[contains(@class,'fa-bell')]")WebElement pushNotificationMenu;
-	@FindBy(xpath = "//input[@id='title']")WebElement titleField;
-	@FindBy(xpath = "//input[@id='description']")WebElement descriptionField;
-	@FindBy(xpath = "//button[@name='create']")WebElement saveButton;
-	@FindBy(xpath = "//div[contains(@class,'alert')]") WebElement alertElement;
+	@FindBy(xpath = "//i[contains(@class,'fa-bell')]") private WebElement pushNotificationMenu;
+	@FindBy(xpath = "//input[@id='title']") private WebElement titleField;
+	@FindBy(xpath = "//input[@id='description']") private WebElement descriptionField;
+	@FindBy(xpath = "//button[@name='create']")private WebElement saveButton;
+	@FindBy(xpath = "//div[contains(@class,'alert')]") private WebElement alertElement;
 	
 	public void clickOnPushNotificationMenu() {
 		pushNotificationMenu.click();

@@ -17,13 +17,13 @@ public class ManageLocationPage {
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy(xpath = "//a[@onclick='click_button(1)']") WebElement newButton;
-	@FindBy(xpath = "//select[@id='country_id']") WebElement countryDropdown;
-	@FindBy (xpath = "//select[@id='st_id']") WebElement stateDropdown;
-	@FindBy(xpath = "//input[@id='location']") WebElement locationField;
-	@FindBy(xpath = "//input[@id='delivery']") WebElement deliveryChargeField;
-	@FindBy(xpath = "//button[@name='create']") WebElement saveButton;
-	@FindBy(xpath = "//div[contains(@class,'alert')]") WebElement alertElement;
+	@FindBy(xpath = "//a[@onclick='click_button(1)']") private WebElement newButton;
+	@FindBy(xpath = "//select[@id='country_id']") private WebElement countryDropdown;
+	@FindBy (xpath = "//select[@id='st_id']") private WebElement stateDropdown;
+	@FindBy(xpath = "//input[@id='location']") private WebElement locationField;
+	@FindBy(xpath = "//input[@id='delivery']") private WebElement deliveryChargeField;
+	@FindBy(xpath = "//button[@name='create']") private WebElement saveButton;
+	@FindBy(xpath = "//div[contains(@class,'alert')]") private WebElement alertElement;
 	
 	public void clickOnNewButton() {
 		newButton.click();
